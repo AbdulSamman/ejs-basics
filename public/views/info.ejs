@@ -1,6 +1,4 @@
-<%-include('_header.ejs')%>
-<p>These are our current books:</p>
-<%if(idCode === null) {%>
+<%-include('_header.ejs')%> <%if(idCode === null) {%>
 <p>These are our current books:</p>
 <div class="books">
   <% siteData.books.forEach(book=> {%>
