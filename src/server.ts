@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
+import fetch from "node-fetch";
 
+// node-fetch statt axios
 const port = 3112;
 const app = express();
 const __dirname = path.resolve(path.dirname(""));
@@ -9,6 +11,9 @@ const __dirname = path.resolve(path.dirname(""));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./public/views"));
+
+const url = "http://edwardtanguay.vercel.app/share/techBooks.json";
+const books = await (await fetch(url)).json();
 
 const siteData = {
   appTitle: "Tech Book Club",
@@ -19,6 +24,7 @@ const siteData = {
       path: "/info",
     },
   ],
+  books,
 };
 
 app.get("/", (req: express.Request, res: express.Response) => {
