@@ -10,14 +10,23 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./public/views"));
 
-const appTitle = "The tech Book Site";
+const siteData = {
+  appTitle: "Tech Book Club",
+  pages: [
+    { title: "Home", path: "/" },
+    {
+      title: "Info",
+      path: "/info",
+    },
+  ],
+};
 
 app.get("/", (req: express.Request, res: express.Response) => {
-  res.render("index", { appTitle });
+  res.render("index", { siteData, currentPath: "/" });
 });
 
 app.get("/info", (req: express.Request, res: express.Response) => {
-  res.render("info", { appTitle });
+  res.render("info", { siteData, currentPath: "/info" });
 });
 
 app.listen(port, () => {

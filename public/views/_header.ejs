@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
-    <title><%=appTitle%></title>
+    <title><%=siteData.appTitle%></title>
   </head>
   <body>
-    <h1><%=appTitle%></h1>
-    <nav>nav bar...</nav>
+    <h1><%=siteData.appTitle%></h1>
+    <nav>
+      <% siteData.pages.forEach(page=> {%> <%if(page.path===currentPath) {%>
+      <a href="<%=page.path%>" class="active"> <%=page.title%> </a>
+      <%} else {%>
+      <a href="<%=page.path%>"> <%=page.title%> </a>
+      <%}%> <%})%>
+    </nav>
   </body>
 </html>
