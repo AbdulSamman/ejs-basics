@@ -9,6 +9,13 @@
     "start": "npm run build && node dist/server.js",
     "build": "tsc"
   },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts,json",
+    "exec": "npm run build && node dist/server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +23,9 @@
     "@types/node": "^18.11.15",
     "nodemon": "^2.0.20",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
   }
 }
