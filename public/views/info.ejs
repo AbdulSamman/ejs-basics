@@ -1,10 +1,23 @@
 <%-include('_header.ejs')%>
 <p>These are our current books:</p>
+<%if(idCode === null) {%>
+<p>These are our current books:</p>
 <div class="books">
-  <% siteData.books.forEach((book)=>{%>
+  <% siteData.books.forEach(book=> {%>
+  <a href="/info/<%=book.idCode%>"
+    ><img
+      src="https://edwardtanguay.vercel.app/share/images/techBooks/<%=book.idCode%>.jpg"
+  /></a>
+  <%})%>
+</div>
+<%} else {%>
+<div class="singleBook">
   <img
     src="https://edwardtanguay.vercel.app/share/images/techBooks/<%=book.idCode%>.jpg"
   />
-  <%})%>
+  <div class="info">
+    <div class="title"><%=book.title%></div>
+    <div class="description"><%=book.description%></div>
+  </div>
 </div>
-<%-include('_footer.ejs')%>
+<%}%> <%-include('_footer.ejs')%>
