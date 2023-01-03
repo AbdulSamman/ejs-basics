@@ -39,17 +39,21 @@ nav a.active {
   width: 8rem;
   height: 11rem;
   box-shadow: 2px 2px 5px #666;
+  filter: brightness(0.65);
+}
+.books img:hover {
+  transform: scale(1.1);
+  filter: brightness(1);
 }
 .singleBook {
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
 }
-img {
-  width: 11rem;
-  box-shadow: 2px 2px 5px #666;
+.singleBook img {
+  width: 8rem;
+  height: 11rem;
 }
-
 .info .title {
   font-size: 1.8rem;
   color: rgb(228, 222, 203);

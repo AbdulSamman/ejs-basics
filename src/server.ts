@@ -28,7 +28,7 @@ const siteData = {
 };
 
 app.get("/", (req: express.Request, res: express.Response) => {
-  res.render("index", { siteData, currentPath: "/" });
+  res.render("index", { siteData, currentPath: "/", idCode: null });
 });
 
 app.get("/info", (req: express.Request, res: express.Response) => {
